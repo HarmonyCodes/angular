@@ -1,8 +1,15 @@
 import { Component } from "@angular/core";
+import { StudentsListComponent } from "./students-list/students-list.component";
 
 @Component({
   selector: "app-root",
-  templateUrl: "./app.component.html"
+  standalone: true,
+  templateUrl: "./app.component.html",
+  imports: [StudentsListComponent]
+  /*template: `
+    <h1>{{title}}</h1>
+    <h2>{{getGreeting()}}</h2>
+    <app-students-list></app-students-list> `*/
 })
 export class AppComponent {
   title = 'My-app';

@@ -1,13 +1,14 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
 import { AppComponent } from "./app.component";
+import {StudentsListComponent} from "./students-list/students-list.component"
 
 @NgModule({
-    declarations:[AppComponent],
-    imports:[BrowserModule],
+    declarations:[],
+    imports:[BrowserModule, StudentsListComponent, CommonModule,AppComponent],
+    providers:[],
     bootstrap:[AppComponent]
 })
 
-export class AppModule{
-
-}
+export class AppModule{}
