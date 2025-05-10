@@ -16,4 +16,9 @@ export class StudentsListComponent {
     new Student(2,"Miri","Kats","Yechezkel","0504115559",false,70),
     new Student(3,"Naama","Levi","Uziel","0556782110",true,80)
   ];
+  deleteStudent(id: number){
+    const index = this.students.findIndex((s) => s.id === id);
+    if (index !== -1) {
+    this.students.splice(index,1);
+    }}
 }
