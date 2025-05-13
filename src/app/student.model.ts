@@ -7,5 +7,6 @@ export class Student{
     public phone: string,
     public active:boolean,
     public gradeAverage: number,
+    public leavingDate?: Date
     ){}
 }

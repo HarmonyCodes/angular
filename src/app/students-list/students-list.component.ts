@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { Student } from '../student.model';
 import { CommonModule } from '@angular/common';
-
+import { StudentDetailsComponent } from '../student-details/student-details.component';
 
 @Component({
   selector: 'app-students-list',
   templateUrl: './students-list.component.html',
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, StudentDetailsComponent]
 })
 export class StudentsListComponent {
   students: Student[]=
   [
     new Student(1,"Nechami","Treger","MivtsaMacabi","0548502887",true,95),
-    new Student(2,"Miri","Kats","Yechezkel","0504115559",false,70),
+    new Student(2,"Miri","Kats","Yechezkel","0504115559",false,70,new Date(Date.now())),
     new Student(3,"Naama","Levi","Uziel","0556782110",true,80)
   ];
   deleteStudent(id: number){
@@ -21,4 +21,22 @@ export class StudentsListComponent {
     if (index !== -1) {
     this.students.splice(index,1);
     }}
+
+    selectedStudent: Student=this.students[0];
+
+    ShowDetails(studentToShow: Student){
+      this.selectedStudent = studentToShow;
+    }
+    addStudent() {
+      this.selectedStudent = {
+        id: 0,
+        firstName: '',
+        lastName: '',
+        adrress: '',
+        gradeAverage: 0,
+        phone: '',
+        active: true,
+      };
+    
+  }
 }

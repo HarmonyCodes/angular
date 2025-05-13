@@ -3,7 +3,14 @@
         <div class="row">
             <div class="col-1">{{student.id}}</div>
             <div class="col-3">{{student.firstName}} {{student.lastName}}</div>
+            <div class="col-2"><button (click)="ShowDetails(student)">Update</button></div>
             <div class="col-2"><button (click)="deleteStudent(student.id)">delete student</button></div>
             </div>
     </li>
 </ul>
+
+<app-student-details [student]="selectedStudent"></app-student-details>
+
+<div class="col-1">
+    <button (click)="addStudent()">Add Student</button>
+</div>

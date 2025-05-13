@@ -1,0 +1,12 @@
+<div class="card" *ngIf="student">
+    <div class="card-body">
+        student details
+    <div>
+            <h5 class="card-title">{{student.firstName}} {{student.lastName}}</h5>
+            <p class="card-text">ID: {{student.id}}</p>
+            <p class="card-text">Address: {{student.adrress}}</p>
+            <p class="card-text">Phone: {{student.phone}}</p>
+            <p class="card-text" *ngIf="!student.active">{{student.leavingDate}}</p>
+        </div> 
+        </div>   
+</div>
