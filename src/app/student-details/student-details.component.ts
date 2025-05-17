@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { Student } from '../student.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,9 +12,19 @@ import { FormsModule } from '@angular/forms';
   standalone: true
 })
 
-export class StudentDetailsComponent {
+export class StudentDetailsComponent implements OnInit {
 
   @Input()
   student!: Student;//=this.students[0];
+
+  @Output()
+  onSaveNewStudent: EventEmitter<Student> = new EventEmitter();
+
+  saveNewStudent(){
+    this.onSaveNewStudent.emit(this.student);
+  }
+
   constructor() {}
+  
+  ngOnInit(): void {}
 }

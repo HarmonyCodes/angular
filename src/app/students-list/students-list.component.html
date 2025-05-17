@@ -9,8 +9,8 @@
     </li>
 </ul>
 
-<app-student-details [student]="selectedStudent"></app-student-details>
+<app-student-details [student]="selectedStudent" (onSaveNewStudent)="addStudentToList($event)"></app-student-details>
 
 <div class="col-1">
-    <button (click)="addStudent()">Add Student</button>
+    <button class="btn btn-primary" (click)="addStudent()">Add Student</button>
 </div>

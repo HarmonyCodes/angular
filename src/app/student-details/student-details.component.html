@@ -1,12 +1,16 @@
 <div class="card" *ngIf="student">
     <div class="card-body">
-        student details
-    <div>
-            <h5 class="card-title">{{student.firstName}} {{student.lastName}}</h5>
-            <p class="card-text">ID: {{student.id}}</p>
-            <p class="card-text">Address: {{student.adrress}}</p>
-            <p class="card-text">Phone: {{student.phone}}</p>
-            <p class="card-text" *ngIf="!student.active">{{student.leavingDate}}</p>
-        </div> 
-        </div>   
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="student.firstName">
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="student.lastName">
+            <input type="text" class="form-control" id="address" [(ngModel)]="student.adrress">
+            <input type="text" class="form-control" id="phone" [(ngModel)]="student.phone">
+            <input type="text" class="form-control" id="avrage" [(ngModel)]="student.gradeAverage">
+            <input type="text" class="form-control" id="active" [(ngModel)]="student.active">
+            <input type="text" *ngIf="!student.active" class="form-control" id="leavingDate" [value]="student.leavingDate">
+
+        </div>
+        <button class="btn btn-primary" (click)="saveNewStudent()">Save</button>   
+    </div>
 </div>

@@ -37,6 +37,22 @@ export class StudentsListComponent {
         phone: '',
         active: true,
       };
-    
+  }
+  addStudentToList(studentToAdd: Student){
+    if (studentToAdd.id === 0) {
+      const newId = this.students.length > 0
+        ? Math.max(...this.students.map(s => s.id)) + 1
+        : 1;
+      studentToAdd.id = newId;
+      this.students.push(studentToAdd);
+    }
+    else {
+      const index = this.students.findIndex((s) => s.id === studentToAdd.id);
+      if (index !== -1) {
+        this.students[index] = studentToAdd;
+      }
+    }
+    this.selectedStudent = this.students[0];
+   // this.selectedStudent = null;
   }
 }
