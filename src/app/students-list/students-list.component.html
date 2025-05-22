@@ -9,6 +9,7 @@
     </li>
 </ul>
 
+<app-student-details-form-md [student]="selectedStudent" (onSaveNewStudent)="addStudentToList($event)"></app-student-details-form-md>
 <app-student-details [student]="selectedStudent" (onSaveNewStudent)="addStudentToList($event)"></app-student-details>
 
 <div class="col-1">

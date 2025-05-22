@@ -1,0 +1,45 @@
+<div class="card" *ngIf="student">
+    <div class="card-body">
+        <form [formGroup]="StudentForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" [formControlName]="'firstName'">
+                <div class="alert alert-danger" *ngIf="!StudentForm.controls['firstName'].valid">First Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" [formControlName]="'lastName'">
+                <div class="alert alert-danger" *ngIf="!StudentForm.controls['lastName'].valid">Last Name is required </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" [formControlName]="'address'">
+                <div class="alert alert-danger" *ngIf="!StudentForm.controls['address'].valid">Address is required</div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" [formControlName]="'phone'">
+                <ng-container *ngIf="!StudentForm.controls['phone'].errors">
+                    <div class="alert alert-danger" *ngIf="StudentForm.controls['phone'].hasError('required')">Phone is
+                        required</div>
+                    <div class="alert alert-danger" *ngIf="StudentForm.controls['phone'].hasError('minlength')">Phone
+                        must be a valid number</div>
+                </ng-container>
+            </div>
+            <div class="form-group">
+                <label for="avrage">Average</label>
+                <input type="text" class="form-control" id="avrage" [formControlName]="'gradeAverage'">
+                <div class="alert alert-danger" *ngIf="!StudentForm.controls['gradeAverage'].valid">Average is required</div>
+            </div>
+            <div class="form-group">
+                <label for="active">Active</label>
+                <input type="text" class="form-control" id="active" [formControlName]="'active'">
+                <div class="alert alert-danger" *ngIf="!StudentForm.controls['active'].valid">Active is required</div>
+            </div>
+            <input type="text" *ngIf="!student.active" class="form-control" id="leavingDate"
+                [formControlName]="'leavingDate'">
+            <button class="btn btn-primary" (click)="saveNewStudent()" [disabled]="!StudentForm.valid">Save</button>
+        </form>
+    </div>
+</div>

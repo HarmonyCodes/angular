@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Student } from '../student.model';
 import { CommonModule } from '@angular/common';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
+import { StudentDetailsFormMDComponent } from '../student-details-form-md/student-details-form-md.component';
 
 @Component({
   selector: 'app-students-list',
   templateUrl: './students-list.component.html',
   standalone: true,
-  imports: [CommonModule, StudentDetailsComponent]
+  imports: [CommonModule, StudentDetailsComponent, StudentDetailsFormMDComponent]
 })
 export class StudentsListComponent {
   students: Student[]=
@@ -32,7 +33,7 @@ export class StudentsListComponent {
         id: 0,
         firstName: '',
         lastName: '',
-        adrress: '',
+        address: '',
         gradeAverage: 0,
         phone: '',
         active: true,

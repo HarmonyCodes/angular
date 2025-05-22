@@ -3,7 +3,7 @@ export class Student{
     public id: number,
     public firstName: string,
     public lastName: string,
-    public adrress: string,
+    public address: string,
     public phone: string,
     public active:boolean,
     public gradeAverage: number,
